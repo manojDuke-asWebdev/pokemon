@@ -1,0 +1,48 @@
+:root {
+    --x-coord:50%;
+    --y-coord:50%;
+}
+
+@mixin pokemoncolr ( $bor,$borr ) {
+    position: absolute;
+    border-radius: 50%;
+    border: 170px solid #{$bor};
+    border-right: 170px solid #{$borr};
+}
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+@keyframes topAnime {
+    from {
+        transform: rotate(-45deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+@keyframes DownAnime {
+    from {
+        transform: rotate(45deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+.pokemon {
+    position: relative;
+    top:var(--x-coord);
+    left: var(--y-coord);
+    transform: rotate(45deg);
+    .poc-1 {
+       @include pokemoncolr(yellow, transparent);
+        animation: topAnime .235s ease-in infinite alternate;
+    }
+    .poc-2 {
+        @include pokemoncolr(transparent, red);
+        animation: DownAnime .235s ease-in infinite alternate;
+    }
+}
