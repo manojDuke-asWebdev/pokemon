@@ -4,19 +4,47 @@ $size: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
+}
+
+.pokemon {
+    position: relative;
+    transform: rotateZ(45deg);
 }
 
 .alpha {
     border: #{$size} solid yellow;
     border-right-color: transparent;
+    animation: Alpha_Animation .230s ease-in infinite alternate-reverse;
 }
 
 .beta {
     border: #{$size} solid transparent;
     border-right-color: yellow;
+    animation: Beta_Animation .230s ease-in infinite alternate-reverse;
 }
 
 .alpha, .beta {
+    position: absolute;
+    height: 0;
+    width: 0;
     border-radius: 50%;
+}
+
+@keyframes Alpha_Animation {
+    from {
+        transform: rotateZ ( 0deg );
+    }
+    to {
+        transform: rotateZ( -45deg );
+    }
+}
+
+@keyframes Beta_Animation {
+    from {
+        transform: rotateZ ( 0deg );
+    }
+    to {
+        transform: rotateZ( 45deg );
+    }
 }
